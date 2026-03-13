@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <script src="https://app.cal.com/embed/embed.js" async></script>
   <style>
     :root {
       --bg:        #080A0F;
@@ -377,6 +378,32 @@
       color: var(--cyan); font-weight: 600; font-size: 15px;
     }
 
+    /* BOOKING SECTION */
+    .booking-section { padding: 120px 0; background: var(--bg); }
+    .booking-grid { display: grid; grid-template-columns: 1fr 2fr; gap: 80px; align-items: start; }
+    .booking-left h2 { text-align: left; margin-bottom: 16px; }
+    .booking-left p { font-size: 16px; color: var(--grey-lt); margin-bottom: 32px; }
+    .booking-perks { display: flex; flex-direction: column; gap: 16px; }
+    .booking-perk { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--grey-lt); }
+    .booking-perk::before {
+      content: '✓'; width: 24px; height: 24px; border-radius: 50%;
+      background: var(--cyan-dim); border: 1px solid rgba(0,229,255,0.3);
+      color: var(--cyan); font-size: 12px; font-weight: 700;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .cal-embed-wrapper {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: 20px; overflow: hidden; min-height: 600px;
+    }
+    .cal-embed-wrapper iframe {
+      width: 100%; min-height: 600px; border: none; display: block;
+    }
+
+    /* BOOKING RESPONSIVE */
+    @media (max-width: 1024px) {
+      .booking-grid { grid-template-columns: 1fr; }
+    }
+
     /* CTA */
     .cta-section { padding: 120px 0; text-align: center; position: relative; overflow: hidden; }
     .cta-section::before {
@@ -519,9 +546,10 @@
       <li><a href="#services">Services</a></li>
       <li><a href="#process">How it Works</a></li>
       <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#booking">Book a Call</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a Discovery Call</button>
+    <button class="nav-cta" data-cal-link="andy-hatcher-ifmnuk" data-cal-config='{"layout":"popup"}'>Book a Discovery Call</button>
     <button class="nav-mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
 
@@ -537,7 +565,7 @@
         <h1>Automate the work.<br>Keep the <span class="cyan">humans.</span></h1>
         <p class="hero-sub">LoopStack builds custom AI workflows that cut manual overhead and scale your operations — without replacing the people that make your business work.</p>
         <div class="hero-actions">
-          <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+          <button class="btn-primary" data-cal-link="andy-hatcher-ifmnuk" data-cal-config='{"layout":"popup"}'>
             Book a Free Discovery Call
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
           </button>
@@ -717,7 +745,7 @@
             <li>2 weeks of support</li>
             <li>Video handover walkthrough</li>
           </ul>
-          <button class="btn-plan btn-plan-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a Call</button>
+          <button class="btn-plan btn-plan-ghost" data-cal-link="andy-hatcher-ifmnuk" data-cal-config='{"layout":"popup"}'>Book a Call</button>
         </div>
         <div class="pricing-card featured">
           <div class="plan-name">Growth</div>
@@ -731,7 +759,7 @@
             <li>4 weeks priority support</li>
             <li>Team training session</li>
           </ul>
-          <button class="btn-plan btn-plan-solid" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a Call</button>
+          <button class="btn-plan btn-plan-solid" data-cal-link="andy-hatcher-ifmnuk" data-cal-config='{"layout":"popup"}'>Book a Call</button>
         </div>
         <div class="pricing-card">
           <div class="plan-name">Retainer</div>
@@ -744,7 +772,7 @@
             <li>Priority Slack access</li>
             <li>Quarterly strategy review</li>
           </ul>
-          <button class="btn-plan btn-plan-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Book a Call</button>
+          <button class="btn-plan btn-plan-ghost" data-cal-link="andy-hatcher-ifmnuk" data-cal-config='{"layout":"popup"}'>Book a Call</button>
         </div>
       </div>
     </div>
@@ -780,6 +808,34 @@
             <div class="faq-q" onclick="toggleFaq(this.parentElement)">What happens after the project is delivered?<span class="icon">+</span></div>
             <div class="faq-a">You own everything we build — all workflows, credentials, and documentation. We offer retainer packages for ongoing maintenance and new builds, but there's no obligation to continue.</div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING -->
+  <section class="booking-section" id="booking">
+    <div class="container">
+      <div class="booking-grid">
+        <div class="reveal">
+          <div class="tag">Book a Meeting</div>
+          <h2>Let's talk about your <span class="cyan">automation</span></h2>
+          <p>Pick a time that works for you. It's a free 30-minute discovery call — we'll map your biggest automation wins together.</p>
+          <div class="booking-perks">
+            <div class="booking-perk">No pitch, no pressure</div>
+            <div class="booking-perk">We come prepared with ideas specific to your business</div>
+            <div class="booking-perk">You'll leave with actionable automation recommendations</div>
+            <div class="booking-perk">Free, even if we don't end up working together</div>
+          </div>
+        </div>
+        <div class="cal-embed-wrapper reveal">
+          <iframe
+            src="https://cal.com/andy-hatcher-ifmnuk?embed=true&theme=dark&hideEventTypeDetails=false&layout=month_view"
+            width="100%"
+            height="640"
+            frameborder="0"
+            title="Book a meeting with LoopStack"
+          ></iframe>
         </div>
       </div>
     </div>
