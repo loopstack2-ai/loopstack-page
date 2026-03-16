@@ -1077,24 +1077,29 @@
       btn.textContent = 'Sending...';
       btn.disabled = true;
 
-      // Collect form data and submit to Netlify Forms
       const data = new FormData(form);
 
-      fetch('/', {
+      fetch('/.netlify/functions/send-email', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(data).toString()
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          first_name: data.get('first_name'),
+          last_name:  data.get('last_name'),
+          email:      data.get('email'),
+          company:    data.get('company'),
+          service:    data.get('service'),
+          message:    data.get('message')
+        })
       })
-        .then(() => {
-          // Show success message on submission
+        .then(res => {
+          if (!res.ok) throw new Error('Send failed');
           document.getElementById('contactForm').style.display = 'none';
           document.getElementById('formSuccess').style.display = 'block';
         })
         .catch(() => {
-          // Re-enable button if something goes wrong
           btn.textContent = 'Send Message';
           btn.disabled = false;
-          alert('Something went wrong. Please try again or email us directly.');
+          alert('Something went wrong. Please try again or email us directly at hello@loopstack.uk');
         });
     }
 
@@ -1163,12 +1168,12 @@
       const email = document.getElementById('leadEmail').value.trim();
       if (!email) { document.getElementById('leadEmail').focus(); return; }
 
-      // POST to Netlify Forms — silent fail so UX isn't broken if it errors
-      fetch('/', {
+      // Send lead details by email
+      fetch('/.netlify/functions/send-email', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams({ 'form-name': 'chat-lead', name, email }).toString()
-      }).catch(() => {});
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'chat-lead', name, email })
+      }).catch(() => {}); // silent fail — UX confirms regardless
 
       leadCaptured = true;
       const card = document.getElementById('chatLeadCard');
@@ -1223,6 +1228,15 @@ Keep responses concise, friendly and helpful. If someone wants to get started or
         });
 
         const data = await response.json();
+
+        // Surface API errors clearly so misconfiguration is obvious
+        if (!response.ok || data.error || data.type === 'error') {
+          const detail = data.error?.message || data.error || 'Unknown error';
+          typing.classList.remove('visible');
+          appendMsg(`⚠️ Chatbot error: ${detail}. Please email hello@loopstack.uk`, 'bot');
+          return;
+        }
+
         const reply = data.content?.[0]?.text || "Sorry, I couldn't process that. Please email hello@loopstack.uk directly.";
         conversationHistory.push({ role: 'user', content: text });
         conversationHistory.push({ role: 'assistant', content: reply });
