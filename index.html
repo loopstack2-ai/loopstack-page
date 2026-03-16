@@ -78,12 +78,20 @@
       display: flex; flex-direction: column; justify-content: center;
       padding: 140px 48px 80px;
       max-width: 1400px; margin: 0 auto;
+      position: relative; overflow: hidden;
+    }
+    /* Three.js particle canvas — behind all hero content */
+    #heroCanvas {
+      position: absolute; top: 0; left: 0;
+      width: 100% !important; height: 100% !important;
+      pointer-events: none; z-index: 0;
     }
     .hero-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: center;
+      position: relative; z-index: 1;
     }
     .hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
     .hero-eyebrow .dot {
@@ -587,6 +595,8 @@
 
   <!-- HERO -->
   <section class="hero">
+    <!-- Three.js particle canvas — hidden if WebGL unavailable -->
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div class="hero-inner">
       <!-- LEFT: Text -->
       <div class="hero-left">
@@ -1253,6 +1263,169 @@ Keep responses concise, friendly and helpful. If someone wants to get started or
         appendMsg("Sorry, I'm having trouble connecting right now. Please email hello@loopstack.uk directly.", 'bot');
       }
     }
+  </script>
+
+  <!-- ── Three.js Particle Hero ──────────────────────────────────── -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script>
+  (function () {
+    var canvas = document.getElementById('heroCanvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    // WebGL check — hide canvas silently if not supported
+    var renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false });
+    } catch (e) {
+      canvas.style.display = 'none';
+      return;
+    }
+
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    var scene  = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
+    camera.position.z = 30;
+
+    var isMobile = window.innerWidth < 768;
+    var COUNT    = isMobile ? 60 : 130;
+
+    // Brand colours — cyan weighted heavier to match the palette
+    var PALETTE = [
+      new THREE.Color('#00E5FF'), // cyan
+      new THREE.Color('#00E5FF'), // cyan (weighted)
+      new THREE.Color('#00E5FF'), // cyan (weighted)
+      new THREE.Color('#00BFDB'), // mid cyan
+      new THREE.Color('#006480'), // deep teal
+      new THREE.Color('#F0F2F5'), // near-white
+    ];
+
+    var positions  = new Float32Array(COUNT * 3);
+    var colors     = new Float32Array(COUNT * 3);
+    var velocities = [];
+    var phases     = [];
+
+    for (var i = 0; i < COUNT; i++) {
+      positions[i * 3]     = (Math.random() - 0.5) * 60;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 40;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 15;
+
+      var c = PALETTE[Math.floor(Math.random() * PALETTE.length)];
+      colors[i * 3]     = c.r;
+      colors[i * 3 + 1] = c.g;
+      colors[i * 3 + 2] = c.b;
+
+      velocities.push({
+        x: (Math.random() - 0.5) * 0.008,
+        y: (Math.random() - 0.5) * 0.008
+      });
+      phases.push(Math.random() * Math.PI * 2);
+    }
+
+    var geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
+
+    var material = new THREE.PointsMaterial({
+      size: 0.14,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.7,
+      sizeAttenuation: true
+    });
+
+    var points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    // Mouse tracking — mapped to particle world space
+    var mouseX = 0, mouseY = 0;
+    if (!isMobile) {
+      var heroEl = document.querySelector('.hero');
+      heroEl.addEventListener('mousemove', function (e) {
+        var rect = heroEl.getBoundingClientRect();
+        mouseX =  ((e.clientX - rect.left) / rect.width  - 0.5) * 60;
+        mouseY = -((e.clientY - rect.top)  / rect.height - 0.5) * 40;
+      });
+      heroEl.addEventListener('mouseleave', function () {
+        mouseX = 0; mouseY = 0;
+      });
+    }
+
+    // Fit canvas to hero dimensions
+    function resize() {
+      var el = document.querySelector('.hero');
+      var w  = el.offsetWidth;
+      var h  = el.offsetHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Animation loop
+    var animId = null;
+    var t = 0;
+    var REPEL_RADIUS = 10;
+
+    function animate() {
+      animId = requestAnimationFrame(animate);
+      t += 0.004;
+
+      var pos = geometry.attributes.position.array;
+
+      for (var i = 0; i < COUNT; i++) {
+        var p = phases[i];
+        var v = velocities[i];
+
+        // Sine-wave drift
+        pos[i * 3]     += Math.sin(t + p)        * 0.003 + v.x;
+        pos[i * 3 + 1] += Math.cos(t * 0.8 + p)  * 0.003 + v.y;
+
+        // Mouse repulsion
+        if (!isMobile && (mouseX !== 0 || mouseY !== 0)) {
+          var dx   = pos[i * 3]     - mouseX;
+          var dy   = pos[i * 3 + 1] - mouseY;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < REPEL_RADIUS && dist > 0) {
+            var force = (1 - dist / REPEL_RADIUS) * 0.06;
+            pos[i * 3]     += (dx / dist) * force;
+            pos[i * 3 + 1] += (dy / dist) * force;
+          }
+        }
+
+        // Wrap at bounds
+        if (pos[i * 3]     >  30) pos[i * 3]     = -30;
+        if (pos[i * 3]     < -30) pos[i * 3]     =  30;
+        if (pos[i * 3 + 1] >  20) pos[i * 3 + 1] = -20;
+        if (pos[i * 3 + 1] < -20) pos[i * 3 + 1] =  20;
+      }
+
+      geometry.attributes.position.needsUpdate = true;
+
+      // Subtle camera drift following mouse
+      if (!isMobile) {
+        camera.position.x += (mouseX * 0.03 - camera.position.x) * 0.04;
+        camera.position.y += (mouseY * 0.02 - camera.position.y) * 0.04;
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    // Pause animation when hero scrolls out of view — saves CPU/battery
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animate();
+        } else {
+          if (animId) { cancelAnimationFrame(animId); animId = null; }
+        }
+      });
+    }, { threshold: 0.05 });
+
+    observer.observe(document.querySelector('.hero'));
+    animate();
+  })();
   </script>
 </body>
 </html>
