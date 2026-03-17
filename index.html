@@ -461,6 +461,16 @@
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
     .footer-brand img { height: 32px; width: auto; margin-bottom: 16px; display: block; }
     .footer-brand p { font-size: 14px; color: var(--grey); line-height: 1.7; max-width: 280px; }
+    .social-icons { display: flex; gap: 12px; margin-top: 20px; }
+    .social-icon {
+      display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid var(--border);
+      color: var(--grey-lt);
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .social-icon:hover { color: var(--cyan); border-color: rgba(0,229,255,0.4); background: var(--cyan-dim); }
+    .social-icon svg { width: 17px; height: 17px; fill: currentColor; }
     .footer-col h5 { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey); margin-bottom: 20px; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .footer-col ul a { font-size: 14px; color: var(--grey-lt); transition: color 0.2s; }
@@ -1144,6 +1154,16 @@
         <div class="footer-brand">
           <img src="assets/loopstack_ai.png" alt="LoopStack AI" />
           <p>AI Automation Agency based in the UK. We build the workflows that free your team to do the work that matters.</p>
+          <div class="social-icons">
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/andrew-hatcher-07095a3b5" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LoopStack on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765C14.396 7.179 20 6.988 20 12.247V19z"/></svg>
+            </a>
+            <!-- X (Twitter) -->
+            <a href="https://x.com/loopstack_ai" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LoopStack on X">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
         </div>
         <div class="footer-col">
           <h5>Services</h5>
