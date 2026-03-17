@@ -3,7 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LoopStack — AI Automation Agency</title>
+  <title>LoopStack — AI Automation Agency | UK</title>
+
+  <!-- ═══ SEO ═══ -->
+  <meta name="description" content="LoopStack builds custom AI automation and full-stack enterprise web apps for UK businesses. Cut overhead, scale operations, and keep your team essential — not expendable." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://loopstack.uk" />
+
+  <!-- ═══ OPEN GRAPH (Facebook / LinkedIn / Slack previews) ═══ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="LoopStack" />
+  <meta property="og:title"       content="LoopStack — AI Automation Agency | UK" />
+  <meta property="og:description" content="LoopStack builds custom AI automation and full-stack enterprise web apps for UK businesses. Cut overhead, scale operations, and keep your team essential — not expendable." />
+  <meta property="og:url"         content="https://loopstack.uk" />
+  <meta property="og:image"       content="https://loopstack.uk/assets/loopstack_ai.png" />
+  <meta property="og:locale"      content="en_GB" />
+
+  <!-- ═══ TWITTER / X CARD ═══ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="LoopStack — AI Automation Agency | UK" />
+  <meta name="twitter:description" content="Custom AI automation & enterprise web apps for UK businesses. Cut overhead, scale operations." />
+  <meta name="twitter:image"       content="https://loopstack.uk/assets/loopstack_ai.png" />
+
+  <!-- ═══ FAVICON ═══ -->
+  <link rel="icon"             type="image/png" href="assets/loopstack_ai.png" />
+  <link rel="apple-touch-icon"                  href="assets/loopstack_ai.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
@@ -597,6 +622,139 @@
       .form-row { grid-template-columns: 1fr; }
     }
   </style>
+
+  <!-- ═══ JSON-LD STRUCTURED DATA (SEO / AEO / GEO) ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "LocalBusiness"],
+        "@id": "https://loopstack.uk/#organization",
+        "name": "LoopStack",
+        "alternateName": "LoopStack AI Automation Agency",
+        "url": "https://loopstack.uk",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://loopstack.uk/assets/loopstack_ai.png"
+        },
+        "description": "LoopStack builds custom AI automation workflows and full-stack enterprise web apps for UK businesses — cutting overhead, scaling operations, and keeping teams essential.",
+        "foundingDate": "2024",
+        "areaServed": {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        "serviceType": ["AI Automation", "Enterprise Web Development", "Workflow Automation"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "loopstack2@gmail.com",
+          "url": "https://loopstack.uk/#contact"
+        },
+        "sameAs": [
+          "https://cal.com/andy-hatcher-ifmnuk"
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://loopstack.uk/#ai-automation",
+        "name": "AI Automation",
+        "description": "Custom AI-powered workflows that automate repetitive business tasks — connecting your apps, processing data, and reducing manual overhead.",
+        "provider": { "@id": "https://loopstack.uk/#organization" },
+        "areaServed": { "@type": "Country", "name": "United Kingdom" },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "description": "One focused automation workflow. Delivered in 5–7 working days.",
+            "priceCurrency": "GBP",
+            "price": "750"
+          },
+          {
+            "@type": "Offer",
+            "name": "Growth",
+            "description": "Multi-system automation suite. 2–4 week delivery.",
+            "priceCurrency": "GBP",
+            "price": "2500"
+          },
+          {
+            "@type": "Offer",
+            "name": "Enterprise",
+            "description": "Full-stack AI infrastructure. Custom scoping and pricing.",
+            "priceCurrency": "GBP"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://loopstack.uk/#web-development",
+        "name": "Enterprise Web Development",
+        "description": "Full-stack enterprise web applications built with modern technologies — scalable, performant, and AI-ready.",
+        "provider": { "@id": "https://loopstack.uk/#organization" },
+        "areaServed": { "@type": "Country", "name": "United Kingdom" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://loopstack.uk/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is an AI Automation Agency?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We build and deploy custom AI-powered workflows that automate repetitive business tasks — connecting your apps, processing your data, and reducing manual overhead without you needing to become a developer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a typical project take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most Starter projects are delivered within 5–7 working days. Growth projects typically take 2–4 weeks depending on complexity. We'll give you a firm timeline after the discovery call."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need technical knowledge?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not at all. We handle all the technical work and document everything in plain English. You just need to understand your own business processes — we handle the rest."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What tools do you work with?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Make, Zapier, n8n, Airtable, Notion, HubSpot, Salesforce, Google Workspace, Microsoft 365, Slack, and custom API integrations. If you use it, we can almost certainly connect it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens after the project is delivered?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You own everything we build — all workflows, credentials, and documentation. We offer retainer packages for ongoing maintenance and new builds, but there's no obligation to continue."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://loopstack.uk/#website",
+        "url": "https://loopstack.uk",
+        "name": "LoopStack",
+        "description": "AI Automation Agency for UK businesses",
+        "publisher": { "@id": "https://loopstack.uk/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://loopstack.uk/#contact",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
