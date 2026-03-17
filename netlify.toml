@@ -4,4 +4,12 @@
 
 [[plugins]]
   package = "@netlify/plugin-functions-install-core"
+
+# 301 redirect: www → non-www (canonical domain is loopstack.uk)
+# The force = true ensures this fires even if a matching file exists
+[[redirects]]
+  from   = "https://www.loopstack.uk/*"
+  to     = "https://loopstack.uk/:splat"
+  status = 301
+  force  = true
  
