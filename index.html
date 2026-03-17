@@ -83,7 +83,12 @@
       border-bottom: 1px solid var(--border);
       transition: padding 0.3s;
     }
-    .nav-logo img { height: 120px; width: auto; display: block; }
+    /* Text logo */
+    .logo-text  { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; white-space: nowrap; }
+    .logo-loop  { color: var(--white); }
+    .logo-stack { color: var(--cyan); }
+    .logo-ai    { color: var(--grey-lt); font-size: 0.68em; font-weight: 600; letter-spacing: 0; margin-left: 2px; }
+    .footer-brand .logo-text { font-size: 20px; margin-bottom: 16px; display: block; }
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a { font-size: 14px; color: var(--grey-lt); font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
@@ -101,7 +106,7 @@
     .hero {
       min-height: 100vh;
       display: flex; flex-direction: column; justify-content: center;
-      padding: 175px 48px 80px;
+      padding: 120px 48px 80px;
       max-width: 1400px; margin: 0 auto;
       position: relative; overflow: hidden;
     }
@@ -459,7 +464,6 @@
     /* FOOTER */
     footer { background: var(--bg); border-top: 1px solid var(--border); padding: 64px 0 40px; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
-    .footer-brand img { height: 32px; width: auto; margin-bottom: 16px; display: block; }
     .footer-brand p { font-size: 14px; color: var(--grey); line-height: 1.7; max-width: 280px; }
     .social-icons { display: flex; gap: 12px; margin-top: 20px; }
     .social-icon {
@@ -611,7 +615,7 @@
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
       .nav-mobile-toggle { display: flex; }
-      .hero { padding: 120px 24px 80px; }
+      .hero { padding: 100px 24px 80px; }
       .hero-inner { grid-template-columns: 1fr; gap: 48px; }
       .hero-right { display: flex; justify-content: center; }
       .video-wrapper { max-width: 100%; }
@@ -770,7 +774,9 @@
 
   <!-- NAV -->
   <nav id="mainNav">
-    <a href="#" class="nav-logo"><img src="assets/loopstack_ai.png" alt="LoopStack AI" /></a>
+    <a href="#" class="nav-logo">
+      <span class="logo-text"><span class="logo-loop">Loop</span><span class="logo-stack">Stack</span><span class="logo-ai">Ai</span></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#process">How it Works</a></li>
@@ -1152,7 +1158,7 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/loopstack_ai.png" alt="LoopStack AI" />
+          <span class="logo-text"><span class="logo-loop">Loop</span><span class="logo-stack">Stack</span><span class="logo-ai">Ai</span></span>
           <p>AI Automation Agency based in the UK. We build the workflows that free your team to do the work that matters.</p>
           <div class="social-icons">
             <!-- LinkedIn -->
