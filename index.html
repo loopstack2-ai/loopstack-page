@@ -3,7 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>LoopStack — AI Automation Agency</title>
+  <title>LoopStack — AI Automation Agency | UK</title>
+
+  <!-- ═══ SEO ═══ -->
+  <meta name="description" content="LoopStack builds custom AI automation and full-stack enterprise web apps for UK businesses. Cut overhead, scale operations, and keep your team essential — not expendable." />
+  <meta name="robots" content="index, follow" />
+  <meta name="google-site-verification" content="googlebd6fe59ecae69566" />
+  <meta name="google-site-verification" content="0QKOtVXONzgebX46Cp4Y7gwnw3m74KJdz-uY_hH1YqY" />
+  <link rel="canonical" href="https://loopstack.uk" />
+  <link rel="sitemap" type="application/xml" href="https://loopstack.uk/sitemap.xml" />
+
+  <!-- ═══ OPEN GRAPH (Facebook / LinkedIn / Slack previews) ═══ -->
+  <meta property="og:type"        content="website" />
+  <meta property="og:site_name"   content="LoopStack" />
+  <meta property="og:title"       content="LoopStack — AI Automation Agency | UK" />
+  <meta property="og:description" content="LoopStack builds custom AI automation and full-stack enterprise web apps for UK businesses. Cut overhead, scale operations, and keep your team essential — not expendable." />
+  <meta property="og:url"         content="https://loopstack.uk" />
+  <meta property="og:image"       content="https://loopstack.uk/assets/loopstack_ai.png" />
+  <meta property="og:locale"      content="en_GB" />
+
+  <!-- ═══ TWITTER / X CARD ═══ -->
+  <meta name="twitter:card"        content="summary_large_image" />
+  <meta name="twitter:title"       content="LoopStack — AI Automation Agency | UK" />
+  <meta name="twitter:description" content="Custom AI automation & enterprise web apps for UK businesses. Cut overhead, scale operations." />
+  <meta name="twitter:image"       content="https://loopstack.uk/assets/loopstack_ai.png" />
+
+  <!-- ═══ FAVICON ═══ -->
+  <link rel="icon"             type="image/png" href="assets/loopstack_ai.png" />
+  <link rel="apple-touch-icon"                  href="assets/loopstack_ai.png" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
@@ -58,7 +86,12 @@
       border-bottom: 1px solid var(--border);
       transition: padding 0.3s;
     }
-    .nav-logo img { height: 82px; width: auto; display: block; }
+    /* Text logo */
+    .logo-text  { font-family: var(--font-display); font-size: 22px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; white-space: nowrap; }
+    .logo-loop  { color: var(--white); }
+    .logo-stack { color: var(--cyan); }
+    .logo-ai    { color: var(--grey-lt); font-size: 0.68em; font-weight: 600; letter-spacing: 0; margin-left: 2px; }
+    .footer-brand .logo-text { font-size: 20px; margin-bottom: 16px; display: block; }
     .nav-links { display: flex; gap: 36px; list-style: none; }
     .nav-links a { font-size: 14px; color: var(--grey-lt); font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: var(--white); }
@@ -76,14 +109,22 @@
     .hero {
       min-height: 100vh;
       display: flex; flex-direction: column; justify-content: center;
-      padding: 140px 48px 80px;
+      padding: 120px 48px 80px;
       max-width: 1400px; margin: 0 auto;
+      position: relative; overflow: hidden;
+    }
+    /* Three.js particle canvas — behind all hero content */
+    #heroCanvas {
+      position: absolute; top: 0; left: 0;
+      width: 100% !important; height: 100% !important;
+      pointer-events: none; z-index: 0;
     }
     .hero-inner {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 60px;
       align-items: center;
+      position: relative; z-index: 1;
     }
     .hero-eyebrow { display: flex; align-items: center; gap: 10px; margin-bottom: 28px; }
     .hero-eyebrow .dot {
@@ -98,7 +139,7 @@
     h1 {
       font-family: var(--font-display);
       font-size: clamp(32px, 4vw, 52px);
-      font-weight: 700; line-height: 1.1; letter-spacing: 0em;
+      font-weight: 700; line-height: 1.1; letter-spacing: -0.02em;
       margin-bottom: 24px;
     }
     .hero-sub { font-size: 17px; color: var(--grey-lt); line-height: 1.7; max-width: 560px; margin-bottom: 44px; }
@@ -122,7 +163,8 @@
 
     /* VIDEO */
     .video-wrapper {
-      width: 100%; max-width: 442px;
+      width: 100%; max-width: 398px;
+      margin-left: auto;
       border-radius: 16px; overflow: hidden;
       border: 1px solid var(--border);
       box-shadow: 0 32px 80px rgba(0,0,0,0.6), 0 0 60px rgba(0,229,255,0.08);
@@ -177,7 +219,7 @@
     h2 {
       font-family: var(--font-display);
       font-size: clamp(28px, 3.5vw, 46px);
-      font-weight: 700; letter-spacing: 0em; line-height: 1.1; margin-bottom: 16px;
+      font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; margin-bottom: 16px;
     }
     .section-sub { font-size: 17px; color: var(--grey-lt); max-width: 520px; margin: 0 auto; }
     .services-grid {
@@ -216,7 +258,13 @@
       background: radial-gradient(circle, rgba(0,229,255,0.04) 0%, transparent 70%);
       pointer-events: none;
     }
-    .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    /* Three.js canvas for process section */
+    #processCanvas {
+      position: absolute; top: 0; left: 0;
+      width: 100% !important; height: 100% !important;
+      pointer-events: none; z-index: 0;
+    }
+    .process-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; position: relative; z-index: 1; }
     .process-steps { display: flex; flex-direction: column; }
     .process-step {
       display: flex; gap: 24px; padding: 32px 0;
@@ -419,8 +467,17 @@
     /* FOOTER */
     footer { background: var(--bg); border-top: 1px solid var(--border); padding: 64px 0 40px; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 64px; }
-    .footer-brand img { height: 32px; width: auto; margin-bottom: 16px; display: block; }
     .footer-brand p { font-size: 14px; color: var(--grey); line-height: 1.7; max-width: 280px; }
+    .social-icons { display: flex; gap: 12px; margin-top: 20px; }
+    .social-icon {
+      display: flex; align-items: center; justify-content: center;
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid var(--border);
+      color: var(--grey-lt);
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .social-icon:hover { color: var(--cyan); border-color: rgba(0,229,255,0.4); background: var(--cyan-dim); }
+    .social-icon svg { width: 17px; height: 17px; fill: currentColor; }
     .footer-col h5 { font-family: var(--font-display); font-size: 13px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--grey); margin-bottom: 20px; }
     .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
     .footer-col ul a { font-size: 14px; color: var(--grey-lt); transition: color 0.2s; }
@@ -428,6 +485,20 @@
     .footer-bottom { display: flex; align-items: center; justify-content: space-between; padding-top: 32px; border-top: 1px solid var(--border); font-size: 13px; color: var(--grey); }
 
     /* CHATBOT */
+    /* BACK TO TOP */
+    .back-to-top {
+      position: fixed; bottom: 28px; left: 28px; z-index: 997;
+      width: 44px; height: 44px; border-radius: 50%;
+      background: var(--bg-card); border: 1px solid rgba(0,229,255,0.3);
+      color: var(--cyan);
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s, transform 0.2s, border-color 0.2s;
+    }
+    .back-to-top.visible { opacity: 1; pointer-events: auto; }
+    .back-to-top:hover { border-color: var(--cyan); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,229,255,0.2); }
+
     .chat-bubble {
       position: fixed; bottom: 28px; right: 28px; z-index: 999;
       width: 56px; height: 56px; border-radius: 50%;
@@ -506,6 +577,38 @@
     }
     .chat-send:hover { opacity: 0.85; }
 
+    /* Chat quick-reply chips */
+    .chat-chips { display: flex; flex-wrap: wrap; gap: 8px; padding: 4px 0 4px; }
+    .chat-chip {
+      background: transparent; border: 1px solid rgba(0,229,255,0.3);
+      color: var(--cyan); border-radius: 100px; padding: 6px 14px;
+      font-size: 12px; font-family: var(--font-body); cursor: pointer;
+      transition: background 0.2s, border-color 0.2s; white-space: nowrap;
+    }
+    .chat-chip:hover { background: var(--cyan-dim); border-color: rgba(0,229,255,0.6); }
+
+    /* Chat lead capture card */
+    .chat-lead-card {
+      background: rgba(0,229,255,0.06); border: 1px solid rgba(0,229,255,0.2);
+      border-radius: 12px; padding: 14px; max-width: 100%;
+    }
+    .chat-lead-card p { font-size: 13px; color: var(--grey-lt); margin-bottom: 10px; line-height: 1.4; }
+    .chat-lead-input {
+      width: 100%; background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      padding: 8px 12px; color: var(--white); font-size: 13px; font-family: var(--font-body);
+      outline: none; transition: border-color 0.2s; margin-bottom: 8px;
+    }
+    .chat-lead-input:focus { border-color: rgba(0,229,255,0.4); }
+    .chat-lead-actions { display: flex; align-items: center; gap: 12px; }
+    .chat-lead-submit {
+      background: var(--cyan); color: #080A0F; border: none; border-radius: 8px;
+      padding: 8px 16px; font-size: 13px; font-weight: 600; font-family: var(--font-body);
+      cursor: pointer; transition: opacity 0.2s;
+    }
+    .chat-lead-submit:hover { opacity: 0.85; }
+    .chat-lead-skip { font-size: 12px; color: var(--grey); cursor: pointer; background: none; border: none; padding: 0; }
+    .chat-lead-skip:hover { color: var(--grey-lt); }
+
     /* SCROLL REVEAL */
     .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.65s ease, transform 0.65s ease; }
     .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -515,7 +618,7 @@
       nav { padding: 16px 24px; }
       .nav-links { display: none; }
       .nav-mobile-toggle { display: flex; }
-      .hero { padding: 120px 24px 80px; }
+      .hero { padding: 100px 24px 80px; }
       .hero-inner { grid-template-columns: 1fr; gap: 48px; }
       .hero-right { display: flex; justify-content: center; }
       .video-wrapper { max-width: 100%; }
@@ -536,12 +639,147 @@
       .form-row { grid-template-columns: 1fr; }
     }
   </style>
+
+  <!-- ═══ JSON-LD STRUCTURED DATA (SEO / AEO / GEO) ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "LocalBusiness"],
+        "@id": "https://loopstack.uk/#organization",
+        "name": "LoopStack",
+        "alternateName": "LoopStack AI Automation Agency",
+        "url": "https://loopstack.uk",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://loopstack.uk/assets/loopstack_ai.png"
+        },
+        "description": "LoopStack builds custom AI automation workflows and full-stack enterprise web apps for UK businesses — cutting overhead, scaling operations, and keeping teams essential.",
+        "foundingDate": "2024",
+        "areaServed": {
+          "@type": "Country",
+          "name": "United Kingdom"
+        },
+        "serviceType": ["AI Automation", "Enterprise Web Development", "Workflow Automation"],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "email": "loopstack2@gmail.com",
+          "url": "https://loopstack.uk/#contact"
+        },
+        "sameAs": [
+          "https://cal.com/andy-hatcher-ifmnuk"
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://loopstack.uk/#ai-automation",
+        "name": "AI Automation",
+        "description": "Custom AI-powered workflows that automate repetitive business tasks — connecting your apps, processing data, and reducing manual overhead.",
+        "provider": { "@id": "https://loopstack.uk/#organization" },
+        "areaServed": { "@type": "Country", "name": "United Kingdom" },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Starter",
+            "description": "One focused automation workflow. Delivered in 5–7 working days.",
+            "priceCurrency": "GBP",
+            "price": "750"
+          },
+          {
+            "@type": "Offer",
+            "name": "Growth",
+            "description": "Multi-system automation suite. 2–4 week delivery.",
+            "priceCurrency": "GBP",
+            "price": "2500"
+          },
+          {
+            "@type": "Offer",
+            "name": "Enterprise",
+            "description": "Full-stack AI infrastructure. Custom scoping and pricing.",
+            "priceCurrency": "GBP"
+          }
+        ]
+      },
+      {
+        "@type": "Service",
+        "@id": "https://loopstack.uk/#web-development",
+        "name": "Enterprise Web Development",
+        "description": "Full-stack enterprise web applications built with modern technologies — scalable, performant, and AI-ready.",
+        "provider": { "@id": "https://loopstack.uk/#organization" },
+        "areaServed": { "@type": "Country", "name": "United Kingdom" }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://loopstack.uk/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What is an AI Automation Agency?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We build and deploy custom AI-powered workflows that automate repetitive business tasks — connecting your apps, processing your data, and reducing manual overhead without you needing to become a developer."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How long does a typical project take?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most Starter projects are delivered within 5–7 working days. Growth projects typically take 2–4 weeks depending on complexity. We'll give you a firm timeline after the discovery call."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Do I need technical knowledge?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not at all. We handle all the technical work and document everything in plain English. You just need to understand your own business processes — we handle the rest."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What tools do you work with?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Make, Zapier, n8n, Airtable, Notion, HubSpot, Salesforce, Google Workspace, Microsoft 365, Slack, and custom API integrations. If you use it, we can almost certainly connect it."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What happens after the project is delivered?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "You own everything we build — all workflows, credentials, and documentation. We offer retainer packages for ongoing maintenance and new builds, but there's no obligation to continue."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://loopstack.uk/#website",
+        "url": "https://loopstack.uk",
+        "name": "LoopStack",
+        "description": "AI Automation Agency for UK businesses",
+        "publisher": { "@id": "https://loopstack.uk/#organization" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://loopstack.uk/#contact",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <!-- NAV -->
   <nav id="mainNav">
-    <a href="#" class="nav-logo"><img src="assets/loopstack_ai.png" alt="LoopStack AI" /></a>
+    <a href="#" class="nav-logo">
+      <span class="logo-text"><span class="logo-loop">Loop</span><span class="logo-stack">Stack</span><span class="logo-ai">Ai</span></span>
+    </a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#process">How it Works</a></li>
@@ -549,12 +787,14 @@
       <li><a href="#booking">Book a Call</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <button class="nav-cta" data-cal-link="andy-hatcher-ifmnuk" data-cal-config='{"layout":"popup"}'>Book a Discovery Call</button>
+    <a href="#booking" class="nav-cta">Book a Discovery Call</a>
     <button class="nav-mobile-toggle" aria-label="Menu"><span></span><span></span><span></span></button>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
+    <!-- Three.js particle canvas — hidden if WebGL unavailable -->
+    <canvas id="heroCanvas" aria-hidden="true"></canvas>
     <div class="hero-inner">
       <!-- LEFT: Text -->
       <div class="hero-left">
@@ -562,13 +802,13 @@
           <div class="dot"></div>
           <span>AI Automation Agency · UK</span>
         </div>
-        <h1>Automate the work.<br>Keep the <span class="cyan">humans.</span></h1>
-        <p class="hero-sub">LoopStack builds custom AI workflows that cut manual overhead and scale your operations — without replacing the people that make your business work.</p>
+        <h1>AI Handles the Grind.<br>You Handle the <span class="cyan">Growth.</span></h1>
+        <p class="hero-sub">LoopStack builds custom AI automation that cuts overhead and scales operations — and full-stack enterprise web apps — keeping your team essential, not expendable.</p>
         <div class="hero-actions">
-          <button class="btn-primary" data-cal-link="andy-hatcher-ifmnuk" data-cal-config='{"layout":"popup"}'>
+          <a href="#booking" class="btn-primary">
             Book a Free Discovery Call
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-          </button>
+          </a>
           <a href="#services" class="btn-ghost">
             Explore Services
             <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
@@ -595,7 +835,7 @@
         <div class="video-wrapper">
           <div class="video-label"><span class="live-dot"></span> Multi-Agent Workflow Demo</div>
           <video autoplay muted loop playsinline>
-            <source src="assets/LoopStack_Ai_Workflow_Video.mp4" type="video/mp4" />
+            <source src="assets/loopstack_ai_automation.mp4" type="video/mp4" />
           </video>
         </div>
       </div>
@@ -670,6 +910,7 @@
 
   <!-- PROCESS -->
   <section class="process" id="process">
+    <canvas id="processCanvas" aria-hidden="true"></canvas>
     <div class="container">
       <div class="process-grid">
         <div>
@@ -865,7 +1106,8 @@
           </div>
         </div>
         <div class="reveal">
-          <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+          <form class="contact-form" id="contactForm" name="contact" data-netlify="true" onsubmit="handleSubmit(event)">
+            <input type="hidden" name="form-name" value="contact" />
             <div class="form-row">
               <div class="form-group">
                 <label for="fname">First Name</label>
@@ -905,10 +1147,10 @@
               Send Message
               <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
             </button>
-            <div class="form-success" id="formSuccess">
-              ✓ Message sent! We'll be in touch within a few hours.
-            </div>
           </form>
+          <div class="form-success" id="formSuccess">
+            ✓ Message sent! We'll be in touch within a few hours.
+          </div>
         </div>
       </div>
     </div>
@@ -919,8 +1161,18 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="assets/loopstack_ai.png" alt="LoopStack AI" />
+          <span class="logo-text"><span class="logo-loop">Loop</span><span class="logo-stack">Stack</span><span class="logo-ai">Ai</span></span>
           <p>AI Automation Agency based in the UK. We build the workflows that free your team to do the work that matters.</p>
+          <div class="social-icons">
+            <!-- LinkedIn -->
+            <a href="https://linkedin.com/in/andrew-hatcher-07095a3b5" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LoopStack on LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 0h-14C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5V5c0-2.761-2.238-5-5-5zM8 19H5V8h3v11zM6.5 6.732c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zM20 19h-3v-5.604c0-3.368-4-3.113-4 0V19h-3V8h3v1.765C14.396 7.179 20 6.988 20 12.247V19z"/></svg>
+            </a>
+            <!-- X (Twitter) -->
+            <a href="https://x.com/loopstack_ai" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LoopStack on X">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
         </div>
         <div class="footer-col">
           <h5>Services</h5>
@@ -957,6 +1209,18 @@
   </footer>
 
   <!-- CHATBOT BUBBLE -->
+  <!-- Hidden form so Netlify detects and registers the chat-lead form -->
+  <form name="chat-lead" data-netlify="true" hidden>
+    <input type="hidden" name="form-name" value="chat-lead" />
+    <input type="text" name="name" />
+    <input type="email" name="email" />
+  </form>
+
+  <!-- Back to top -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/></svg>
+  </button>
+
   <button class="chat-bubble" onclick="toggleChat()" aria-label="Open chat">
     <svg id="chatIcon" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
   </button>
@@ -979,6 +1243,12 @@
       <div class="msg bot">
         <div class="msg-bubble">👋 Hi! I'm the LoopStack AI assistant. I can tell you about our automation services, pricing, and how we work. What would you like to know?</div>
         <div class="msg-time">Just now</div>
+      </div>
+      <div class="chat-chips" id="chatChips">
+        <button class="chat-chip" onclick="askChip('What do you automate?')">What do you automate?</button>
+        <button class="chat-chip" onclick="askChip('How much does it cost?')">How much does it cost?</button>
+        <button class="chat-chip" onclick="askChip('How does it work?')">How does it work?</button>
+        <button class="chat-chip" onclick="askChip('Can I book a free call?')">Book a free call</button>
       </div>
     </div>
     <div class="chat-typing" id="chatTyping">
@@ -1018,25 +1288,51 @@
       }
     }
 
-    // ── Nav shrink ──────────────────────────────────────────────
+    // ── Nav shrink + Back to top ────────────────────────────────
     window.addEventListener('scroll', () => {
       document.querySelector('nav').style.padding = window.scrollY > 40 ? '12px 48px' : '16px 48px';
+      document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400);
     });
 
     // ── Contact Form ────────────────────────────────────────────
     function handleSubmit(e) {
       e.preventDefault();
-      const btn = e.target.querySelector('.form-submit');
+      const form = e.target;
+      const btn = form.querySelector('.form-submit');
       btn.textContent = 'Sending...';
       btn.disabled = true;
-      setTimeout(() => {
-        document.getElementById('contactForm').style.display = 'none';
-        document.getElementById('formSuccess').style.display = 'block';
-      }, 1200);
+
+      const data = new FormData(form);
+
+      fetch('/.netlify/functions/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          first_name: data.get('first_name'),
+          last_name:  data.get('last_name'),
+          email:      data.get('email'),
+          company:    data.get('company'),
+          service:    data.get('service'),
+          message:    data.get('message')
+        })
+      })
+        .then(res => {
+          if (!res.ok) throw new Error('Send failed');
+          document.getElementById('contactForm').style.display = 'none';
+          document.getElementById('formSuccess').style.display = 'block';
+        })
+        .catch(() => {
+          btn.textContent = 'Send Message';
+          btn.disabled = false;
+          alert('Something went wrong. Please try again or email us directly at hello@loopstack.uk');
+        });
     }
 
     // ── Chatbot ─────────────────────────────────────────────────
     let chatOpen = false;
+    let conversationHistory = [];
+    let leadCaptured = false;
+    let leadCardShown = false;
 
     function toggleChat() {
       chatOpen = !chatOpen;
@@ -1065,11 +1361,67 @@
       msgs.scrollTop = msgs.scrollHeight;
     }
 
+    // Called when a quick-reply chip is clicked
+    function askChip(question) {
+      const chips = document.getElementById('chatChips');
+      if (chips) chips.style.display = 'none';
+      document.getElementById('chatInput').value = question;
+      sendMessage();
+    }
+
+    // Show lead capture card after first bot reply
+    function showLeadCard() {
+      const msgs = document.getElementById('chatMessages');
+      const card = document.createElement('div');
+      card.id = 'chatLeadCard';
+      card.innerHTML = `
+        <div class="chat-lead-card">
+          <p>✉️ Want us to follow up? Drop your details and we'll be in touch.</p>
+          <input class="chat-lead-input" id="leadName" type="text" placeholder="Your name" />
+          <input class="chat-lead-input" id="leadEmail" type="email" placeholder="Your email" />
+          <div class="chat-lead-actions">
+            <button class="chat-lead-submit" onclick="submitLead()">Send details</button>
+            <button class="chat-lead-skip" onclick="skipLead()">Skip for now</button>
+          </div>
+        </div>`;
+      msgs.appendChild(card);
+      msgs.scrollTop = msgs.scrollHeight;
+    }
+
+    function submitLead() {
+      const name = document.getElementById('leadName').value.trim();
+      const email = document.getElementById('leadEmail').value.trim();
+      if (!email) { document.getElementById('leadEmail').focus(); return; }
+
+      // Send lead details by email
+      fetch('/.netlify/functions/send-email', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ type: 'chat-lead', name, email })
+      }).catch(() => {}); // silent fail — UX confirms regardless
+
+      leadCaptured = true;
+      const card = document.getElementById('chatLeadCard');
+      if (card) card.innerHTML = '<div class="chat-lead-card" style="text-align:center"><span style="color:var(--cyan);font-weight:600">✓ Got it! We\'ll be in touch soon.</span></div>';
+      document.getElementById('chatMessages').scrollTop = 99999;
+    }
+
+    function skipLead() {
+      leadCaptured = true;
+      const card = document.getElementById('chatLeadCard');
+      if (card) card.remove();
+    }
+
     async function sendMessage() {
       const input = document.getElementById('chatInput');
       const text = input.value.trim();
       if (!text) return;
       input.value = '';
+
+      // Hide chips on first user message
+      const chips = document.getElementById('chatChips');
+      if (chips) chips.style.display = 'none';
+
       appendMsg(text, 'user');
 
       const typing = document.getElementById('chatTyping');
@@ -1077,13 +1429,12 @@
       document.getElementById('chatMessages').scrollTop = 99999;
 
       try {
-        const response = await fetch('https://api.anthropic.com/v1/messages', {
+        // Call our secure Netlify Function proxy — API key never touches the browser
+        const response = await fetch('/.netlify/functions/chat', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            model: 'claude-sonnet-4-20250514',
-            max_tokens: 1000,
-            system: `You are the LoopStack AI assistant — a helpful, knowledgeable chatbot for LoopStack, a UK-based AI Automation Agency. 
+            system: `You are the LoopStack AI assistant — a helpful, knowledgeable chatbot for LoopStack, a UK-based AI Automation Agency.
 
 Your job is to answer questions about LoopStack's services, pricing, and process, and to capture leads who are interested in working with us.
 
@@ -1096,24 +1447,342 @@ About LoopStack:
 - Based in the UK
 - Contact: hello@loopstack.uk
 
-Keep responses concise, friendly and helpful. If someone wants to get started or book a call, encourage them to fill in the contact form on the page or email hello@loopstack.uk. Never make up information.`,
+Keep responses concise, friendly and helpful. If someone wants to get started or book a call, encourage them to use the booking section on the page or email hello@loopstack.uk. Never make up information.`,
             messages: conversationHistory.concat([{ role: 'user', content: text }])
           })
         });
 
         const data = await response.json();
+
+        // Surface API errors clearly so misconfiguration is obvious
+        if (!response.ok || data.error || data.type === 'error') {
+          const detail = data.error?.message || data.error || 'Unknown error';
+          typing.classList.remove('visible');
+          appendMsg(`⚠️ Chatbot error: ${detail}. Please email hello@loopstack.uk`, 'bot');
+          return;
+        }
+
         const reply = data.content?.[0]?.text || "Sorry, I couldn't process that. Please email hello@loopstack.uk directly.";
         conversationHistory.push({ role: 'user', content: text });
         conversationHistory.push({ role: 'assistant', content: reply });
         typing.classList.remove('visible');
         appendMsg(reply, 'bot');
+
+        // Show lead capture card after the first bot reply
+        if (!leadCardShown && !leadCaptured) {
+          leadCardShown = true;
+          showLeadCard();
+        }
       } catch (err) {
         typing.classList.remove('visible');
         appendMsg("Sorry, I'm having trouble connecting right now. Please email hello@loopstack.uk directly.", 'bot');
       }
     }
+  </script>
 
-    let conversationHistory = [];
+  <!-- ── Three.js Particle Hero ──────────────────────────────────── -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script>
+  (function () {
+    var canvas = document.getElementById('heroCanvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    // WebGL check — hide canvas silently if not supported
+    var renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false });
+    } catch (e) {
+      canvas.style.display = 'none';
+      return;
+    }
+
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    var scene  = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
+    camera.position.z = 30;
+
+    var isMobile = window.innerWidth < 768;
+    var COUNT    = isMobile ? 60 : 130;
+
+    // Brand colours — cyan weighted heavier to match the palette
+    var PALETTE = [
+      new THREE.Color('#00E5FF'), // cyan
+      new THREE.Color('#00E5FF'), // cyan (weighted)
+      new THREE.Color('#00E5FF'), // cyan (weighted)
+      new THREE.Color('#00BFDB'), // mid cyan
+      new THREE.Color('#006480'), // deep teal
+      new THREE.Color('#F0F2F5'), // near-white
+    ];
+
+    var positions  = new Float32Array(COUNT * 3);
+    var colors     = new Float32Array(COUNT * 3);
+    var velocities = [];
+    var phases     = [];
+
+    for (var i = 0; i < COUNT; i++) {
+      positions[i * 3]     = (Math.random() - 0.5) * 60;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 40;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 15;
+
+      var c = PALETTE[Math.floor(Math.random() * PALETTE.length)];
+      colors[i * 3]     = c.r;
+      colors[i * 3 + 1] = c.g;
+      colors[i * 3 + 2] = c.b;
+
+      velocities.push({
+        x: (Math.random() - 0.5) * 0.008,
+        y: (Math.random() - 0.5) * 0.008
+      });
+      phases.push(Math.random() * Math.PI * 2);
+    }
+
+    var geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
+
+    var material = new THREE.PointsMaterial({
+      size: 0.14,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.7,
+      sizeAttenuation: true
+    });
+
+    var points = new THREE.Points(geometry, material);
+    scene.add(points);
+
+    // Mouse tracking — mapped to particle world space
+    var mouseX = 0, mouseY = 0;
+    if (!isMobile) {
+      var heroEl = document.querySelector('.hero');
+      heroEl.addEventListener('mousemove', function (e) {
+        var rect = heroEl.getBoundingClientRect();
+        mouseX =  ((e.clientX - rect.left) / rect.width  - 0.5) * 60;
+        mouseY = -((e.clientY - rect.top)  / rect.height - 0.5) * 40;
+      });
+      heroEl.addEventListener('mouseleave', function () {
+        mouseX = 0; mouseY = 0;
+      });
+    }
+
+    // Fit canvas to hero dimensions
+    function resize() {
+      var el = document.querySelector('.hero');
+      var w  = el.offsetWidth;
+      var h  = el.offsetHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Animation loop
+    var animId = null;
+    var t = 0;
+    var REPEL_RADIUS = 10;
+
+    function animate() {
+      animId = requestAnimationFrame(animate);
+      t += 0.004;
+
+      var pos = geometry.attributes.position.array;
+
+      for (var i = 0; i < COUNT; i++) {
+        var p = phases[i];
+        var v = velocities[i];
+
+        // Sine-wave drift
+        pos[i * 3]     += Math.sin(t + p)        * 0.003 + v.x;
+        pos[i * 3 + 1] += Math.cos(t * 0.8 + p)  * 0.003 + v.y;
+
+        // Mouse repulsion
+        if (!isMobile && (mouseX !== 0 || mouseY !== 0)) {
+          var dx   = pos[i * 3]     - mouseX;
+          var dy   = pos[i * 3 + 1] - mouseY;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < REPEL_RADIUS && dist > 0) {
+            var force = (1 - dist / REPEL_RADIUS) * 0.06;
+            pos[i * 3]     += (dx / dist) * force;
+            pos[i * 3 + 1] += (dy / dist) * force;
+          }
+        }
+
+        // Wrap at bounds
+        if (pos[i * 3]     >  30) pos[i * 3]     = -30;
+        if (pos[i * 3]     < -30) pos[i * 3]     =  30;
+        if (pos[i * 3 + 1] >  20) pos[i * 3 + 1] = -20;
+        if (pos[i * 3 + 1] < -20) pos[i * 3 + 1] =  20;
+      }
+
+      geometry.attributes.position.needsUpdate = true;
+
+      // Subtle camera drift following mouse
+      if (!isMobile) {
+        camera.position.x += (mouseX * 0.03 - camera.position.x) * 0.04;
+        camera.position.y += (mouseY * 0.02 - camera.position.y) * 0.04;
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    // Pause animation when hero scrolls out of view — saves CPU/battery
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animate();
+        } else {
+          if (animId) { cancelAnimationFrame(animId); animId = null; }
+        }
+      });
+    }, { threshold: 0.05 });
+
+    observer.observe(document.querySelector('.hero'));
+    animate();
+  })();
+
+  // ── Process section particles (same system, different canvas) ──
+  (function () {
+    var canvas = document.getElementById('processCanvas');
+    if (!canvas || typeof THREE === 'undefined') return;
+
+    var renderer;
+    try {
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: false });
+    } catch (e) {
+      canvas.style.display = 'none';
+      return;
+    }
+
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+    var scene  = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(60, 1, 0.1, 100);
+    camera.position.z = 30;
+
+    var isMobile = window.innerWidth < 768;
+    var COUNT    = isMobile ? 40 : 80;
+
+    var PALETTE = [
+      new THREE.Color('#00E5FF'),
+      new THREE.Color('#00E5FF'),
+      new THREE.Color('#00BFDB'),
+      new THREE.Color('#006480'),
+      new THREE.Color('#F0F2F5'),
+    ];
+
+    var positions  = new Float32Array(COUNT * 3);
+    var colors     = new Float32Array(COUNT * 3);
+    var velocities = [];
+    var phases     = [];
+
+    for (var i = 0; i < COUNT; i++) {
+      positions[i * 3]     = (Math.random() - 0.5) * 60;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 40;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 15;
+
+      var c = PALETTE[Math.floor(Math.random() * PALETTE.length)];
+      colors[i * 3]     = c.r;
+      colors[i * 3 + 1] = c.g;
+      colors[i * 3 + 2] = c.b;
+
+      velocities.push({
+        x: (Math.random() - 0.5) * 0.007,
+        y: (Math.random() - 0.5) * 0.007
+      });
+      phases.push(Math.random() * Math.PI * 2);
+    }
+
+    var geometry = new THREE.BufferGeometry();
+    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    geometry.setAttribute('color',    new THREE.BufferAttribute(colors, 3));
+
+    var material = new THREE.PointsMaterial({
+      size: 0.12,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.5,
+      sizeAttenuation: true
+    });
+
+    scene.add(new THREE.Points(geometry, material));
+
+    // Mouse repulsion for process section
+    var mouseX = 0, mouseY = 0;
+    if (!isMobile) {
+      var sectionEl = document.querySelector('.process');
+      sectionEl.addEventListener('mousemove', function (e) {
+        var rect = sectionEl.getBoundingClientRect();
+        mouseX =  ((e.clientX - rect.left) / rect.width  - 0.5) * 60;
+        mouseY = -((e.clientY - rect.top)  / rect.height - 0.5) * 40;
+      });
+      sectionEl.addEventListener('mouseleave', function () {
+        mouseX = 0; mouseY = 0;
+      });
+    }
+
+    function resize() {
+      var el = document.querySelector('.process');
+      var w  = el.offsetWidth;
+      var h  = el.offsetHeight;
+      renderer.setSize(w, h, false);
+      camera.aspect = w / h;
+      camera.updateProjectionMatrix();
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var animId = null;
+    var t = 0;
+
+    function animate() {
+      animId = requestAnimationFrame(animate);
+      t += 0.004;
+
+      var pos = geometry.attributes.position.array;
+      for (var i = 0; i < COUNT; i++) {
+        var p = phases[i];
+        var v = velocities[i];
+
+        pos[i * 3]     += Math.sin(t + p)       * 0.003 + v.x;
+        pos[i * 3 + 1] += Math.cos(t * 0.8 + p) * 0.003 + v.y;
+
+        if (!isMobile && (mouseX !== 0 || mouseY !== 0)) {
+          var dx   = pos[i * 3]     - mouseX;
+          var dy   = pos[i * 3 + 1] - mouseY;
+          var dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 10 && dist > 0) {
+            var force = (1 - dist / 10) * 0.06;
+            pos[i * 3]     += (dx / dist) * force;
+            pos[i * 3 + 1] += (dy / dist) * force;
+          }
+        }
+
+        if (pos[i * 3]     >  30) pos[i * 3]     = -30;
+        if (pos[i * 3]     < -30) pos[i * 3]     =  30;
+        if (pos[i * 3 + 1] >  20) pos[i * 3 + 1] = -20;
+        if (pos[i * 3 + 1] < -20) pos[i * 3 + 1] =  20;
+      }
+
+      geometry.attributes.position.needsUpdate = true;
+      renderer.render(scene, camera);
+    }
+
+    // Only animate when visible
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          animate();
+        } else {
+          if (animId) { cancelAnimationFrame(animId); animId = null; }
+        }
+      });
+    }, { threshold: 0.05 });
+
+    observer.observe(document.querySelector('.process'));
+    animate();
+  })();
   </script>
 </body>
 </html>
