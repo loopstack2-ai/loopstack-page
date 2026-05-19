@@ -1,0 +1,7 @@
+# Clean URLs (no .html extension)
+/ai-automation-consultant     /ai-automation-consultant.html    200
+/chatgpt-consultant           /chatgpt-consultant.html          200
+/hire-ai-consultant           /hire-ai-consultant.html          200
+
+# 404 fallback
+/*    /404.html    404

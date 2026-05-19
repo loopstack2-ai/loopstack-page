@@ -1,0 +1,37 @@
+# LoopStack AI — UK AI Automation Consultant
+> LoopStack is a UK-based AI automation consultant that builds custom AI workflows, intelligent chatbots, and automation systems for businesses. We eliminate manual work through AI — and hand over working systems you own outright.
+
+## About LoopStack
+LoopStack AI is an AI automation consultancy registered in England and Wales, serving businesses across the United Kingdom. We build custom automation workflows using Make, Zapier, n8n, OpenAI GPT-4, and Anthropic Claude. All projects are fixed-price and clients own all deliverables on completion.
+
+## Services
+- **AI Workflow Automation**: End-to-end automation using Make (formerly Integromat), Zapier, and n8n. Connects business applications and eliminates repetitive manual tasks.
+- **AI Chatbots and Agents**: Custom-trained AI assistants for customer support, lead qualification, and 24/7 client communication using ChatGPT and Claude.
+- **Document Intelligence**: AI extraction and routing of data from invoices, contracts, emails, and application forms — zero manual data entry.
+- **CRM and Sales Automation**: Automated lead enrichment, follow-up sequences, and data sync across HubSpot, Salesforce, and Pipedrive.
+- **ChatGPT and Generative AI Consulting**: Integration of large language models (LLMs) into business workflows, including document processing, internal knowledge bases, and customer support automation.
+- **Custom API Integrations**: Bespoke integrations connecting software platforms that don't natively communicate.
+
+## Pricing
+- Starter: £997 one-time — single workflow automation, up to 3 integrations, 2 weeks support
+- Growth: £2,497 one-time — multi-step automation suite with AI component, unlimited integrations, 4 weeks support, team training
+- Retainer: £799/month — ongoing automation management, monthly new build, monitoring and maintenance
+
+## Key Facts
+- First automation deployed within 48 hours of scoping
+- Starter projects delivered in 5–7 working days
+- Growth projects delivered in 2–4 weeks
+- Clients own all workflows, code, credentials, and documentation on delivery
+- No vendor lock-in — clients can maintain or transfer automations independently
+- UK-based team, GDPR-aware
+
+## Contact
+- Email: hello@loopstack.uk
+- Website: https://loopstack.uk
+- Booking: https://loopstack.uk/#booking
+
+## Pages
+- Homepage: https://loopstack.uk/
+- AI Automation Consulting: https://loopstack.uk/ai-automation-consultant.html
+- ChatGPT and Generative AI Consulting: https://loopstack.uk/chatgpt-consultant.html
+- How to Hire an AI Consultant UK: https://loopstack.uk/hire-ai-consultant.html
