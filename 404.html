@@ -1,41 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page Not Found — LoopStack AI</title>
-  <meta name="robots" content="noindex" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #080A0F; --bg-card: #111520; --border: rgba(255,255,255,0.07);
-      --cyan: #00E5FF; --cyan-dim: rgba(0,229,255,0.12);
-      --white: #F0F2F5; --grey: #6B7280; --grey-lt: #9CA3AF;
-      --font-display: 'Syne', sans-serif; --font-body: 'Instrument Sans', sans-serif;
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>404 — Page Not Found | LoopStack AI</title>
+<meta name="description" content="Page not found. The page you're looking for doesn't exist or has been moved.">
+<meta name="robots" content="noindex, follow">
+<link rel="canonical" href="https://loopstack.uk/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="404 — Page Not Found | LoopStack AI" />
+<meta property="og:description" content="Page not found. The page you're looking for doesn't exist or has been moved." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://loopstack.uk/404" />
+<meta property="og:image" content="https://loopstack.uk/assets/og-image.png" />
+<meta property="og:site_name" content="LoopStack AI" />
+<meta property="og:locale" content="en_GB" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="404 — Page Not Found | LoopStack AI" />
+<meta name="twitter:description" content="Page not found." />
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://loopstack.uk/#website",
+      "url": "https://loopstack.uk",
+      "name": "LoopStack AI"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://loopstack.uk/404#webpage",
+      "url": "https://loopstack.uk/404",
+      "name": "404 — Page Not Found",
+      "isPartOf": {"@id": "https://loopstack.uk/#website"}
     }
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: var(--bg); color: var(--white); font-family: var(--font-body); min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 40px 24px; -webkit-font-smoothing: antialiased; }
-    a { color: inherit; text-decoration: none; }
-    .code { font-family: var(--font-display); font-size: clamp(80px, 15vw, 160px); font-weight: 700; letter-spacing: -0.03em; line-height: 1; color: var(--cyan); opacity: 0.15; margin-bottom: 0; }
-    h1 { font-family: var(--font-display); font-size: clamp(24px, 3vw, 36px); font-weight: 700; letter-spacing: -0.02em; margin-bottom: 16px; margin-top: -16px; }
-    p { font-size: 17px; color: var(--grey-lt); line-height: 1.7; max-width: 420px; margin-bottom: 40px; }
-    .links { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
-    .btn { background: var(--cyan); color: #080A0F; font-family: var(--font-body); font-weight: 700; font-size: 15px; padding: 12px 24px; border-radius: 10px; transition: opacity 0.2s; }
-    .btn:hover { opacity: 0.88; }
-    .btn-ghost { color: var(--grey-lt); font-size: 15px; font-weight: 500; padding: 12px 0; transition: color 0.2s; }
-    .btn-ghost:hover { color: var(--white); }
-  </style>
+  ]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root{--bg-primary:#07090f;--bg-secondary:#0c0f18;--text-primary:#f0f2f8;--text-secondary:#8b92a8;--accent-gradient:linear-gradient(135deg,#3b82f6,#22d3ee);--font-display:'Inter',sans-serif;--font-body:'DM Sans',sans-serif}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-body);background:var(--bg-primary);color:var(--text-primary);display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;text-align:center;padding:24px}
+.code{font-family:var(--font-display);font-size:clamp(5rem,12vw,9rem);font-weight:800;background:var(--accent-gradient);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1;margin-bottom:8px}
+h1{font-family:var(--font-display);font-size:clamp(1.25rem,2.5vw,1.75rem);font-weight:700;color:#fff;margin-bottom:12px}
+p{color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:32px;max-width:420px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 32px;border-radius:10px;background:linear-gradient(135deg,#3b82f6,#22d3ee);color:#fff;font-family:var(--font-display);font-weight:600;font-size:0.95rem;text-decoration:none;transition:transform 0.2s,box-shadow 0.3s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 12px 40px rgba(59,130,246,0.35)}
+</style>
 </head>
 <body>
-  <div class="code">404</div>
-  <h1>Page not found</h1>
-  <p>This page doesn't exist or may have moved. Head back to the homepage or explore our services.</p>
-  <div class="links">
-    <a href="/" class="btn">Back to Home</a>
-    <a href="/ai-automation-consultant.html" class="btn-ghost">AI Consulting →</a>
-    <a href="/#booking" class="btn-ghost">Book a Call →</a>
-  </div>
+<div class="code">404</div>
+<h1>This page has wandered off</h1>
+<p>The page you're looking for doesn't exist, has been moved, or is hiding somewhere else on the internet.</p>
+<a href="https://loopstack.uk/" class="btn">Back to LoopStack.uk &rarr;</a>
 </body>
 </html>
