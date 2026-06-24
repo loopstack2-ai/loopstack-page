@@ -17,6 +17,7 @@
 /projects/loopstack-recruitment    /projects/loopstack-recruitment.html    200
 
 # ── 301 redirects from .html extension URLs to clean URLs ──
+/tenurai.html    /projects/tenurai    301!
 /hire-ai-consultant.html    /hire-ai-consultant    301!
 /custom-software-development.html    /custom-software-development    301!
 /web-app-development.html    /web-app-development    301!
