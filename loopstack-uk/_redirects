@@ -1,0 +1,40 @@
+# ── Clean URL rewrites ──
+/404    /404.html    200
+/hire-ai-consultant    /hire-ai-consultant.html    200
+/custom-software-development    /custom-software-development.html    200
+/web-app-development    /web-app-development.html    200
+/ai-for-small-business    /ai-for-small-business.html    200
+/business-process-automation    /business-process-automation.html    200
+/ai-chatbot-development    /ai-chatbot-development.html    200
+/insights    /insights.html    200
+/ai-automation-consultant    /ai-automation-consultant.html    200
+/chatgpt-consultant    /chatgpt-consultant.html    200
+/about    /about.html    200
+/privacy    /privacy.html    200
+/insights/ai-automation-cost-uk    /insights/ai-automation-cost-uk.html    200
+/insights/logistics-automation-case-study    /insights/logistics-automation-case-study.html    200
+/projects/tenurai    /projects/tenurai.html    200
+/projects/loopstack-recruitment    /projects/loopstack-recruitment.html    200
+
+# ── 301 redirects from .html extension URLs to clean URLs ──
+/tenurai.html    /projects/tenurai    301!
+/hire-ai-consultant.html    /hire-ai-consultant    301!
+/custom-software-development.html    /custom-software-development    301!
+/web-app-development.html    /web-app-development    301!
+/ai-for-small-business.html    /ai-for-small-business    301!
+/business-process-automation.html    /business-process-automation    301!
+/ai-chatbot-development.html    /ai-chatbot-development    301!
+/insights.html    /insights    301!
+/ai-automation-consultant.html    /ai-automation-consultant    301!
+/chatgpt-consultant.html    /chatgpt-consultant    301!
+/about.html    /about    301!
+/privacy.html    /privacy    301!
+/insights/ai-automation-cost-uk.html    /insights/ai-automation-cost-uk    301!
+/insights/logistics-automation-case-study.html    /insights/logistics-automation-case-study    301!
+/projects/tenurai.html    /projects/tenurai    301!
+/projects/loopstack-recruitment.html    /projects/loopstack-recruitment    301!
+/index.html    /    301!
+/404.html    /404    301!
+
+# ── Catch-all 404 ──
+/*    /404.html    404
